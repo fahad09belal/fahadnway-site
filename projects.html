@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects — !Froyo¡ | Mohammad Fahad Al-Belal</title>
+
+<meta name="description" content="Official project archive of Mohammad Fahad Al-Belal featuring !Froyo¡, F.A.H.A.D, PhalqonOS, software development, NES emulation, networking and experimental projects.">
+<meta name="author" content="Mohammad Fahad Al-Belal">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://fahadnway.qd.je/projects.html">
+
+<link rel="icon" type="image/png" href="/froyo.png">
+<link rel="shortcut icon" type="image/png" href="/froyo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #8FFE09;
+    color: #050505;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND SHAPES
+========================= */
+
+.shape {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.shape.one {
+    width: 180px;
+    height: 180px;
+    background: #050505;
+    top: -50px;
+    right: -40px;
+    transform: rotate(18deg);
+}
+
+.shape.two {
+    width: 120px;
+    height: 300px;
+    background: #ff1744;
+    bottom: -100px;
+    left: -40px;
+    transform: rotate(25deg);
+}
+
+.shape.three {
+    width: 90px;
+    height: 90px;
+    background: #175cff;
+    top: 45%;
+    right: 5%;
+    transform: rotate(45deg);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #050505;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    font-family: "Permanent Marker", cursive;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    color: #ffe600;
+    -webkit-text-stroke: 3px #050505;
+    text-shadow: 6px 6px 0 #e60012;
+    transform: rotate(-3deg);
+}
+
+.since {
+    margin-top: 10px;
+    margin-left: 8px;
+    font-family: "Permanent Marker", cursive;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: #ffe600;
+    -webkit-text-stroke: 1.5px #050505;
+    text-shadow: 3px 3px 0 #e60012;
+    transform: rotate(-2deg);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav a {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #050505;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border: 3px solid #050505;
+    box-shadow: 5px 5px 0 #050505;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+nav a:nth-child(1) {
+    transform: rotate(-2deg);
+}
+
+nav a:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+nav a:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+nav a:nth-child(4) {
+    transform: rotate(2deg);
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px) rotate(0deg);
+    box-shadow: 7px 7px 0 #e60012;
+}
+
+nav a:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #050505;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 7%;
+}
+
+.label {
+    display: inline-block;
+    background: #050505;
+    color: #8FFE09;
+    padding: 8px 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(70px, 13vw, 150px);
+    line-height: 0.8;
+    letter-spacing: -5px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+}
+
+.intro {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 700;
+    max-width: 850px;
+    margin-bottom: 65px;
+}
+
+/* =========================
+   PROJECT CARDS
+========================= */
+
+.project {
+    margin-bottom: 55px;
+    background: #f5f5f5;
+    border: 5px solid #050505;
+    padding: 35px;
+    box-shadow: 12px 12px 0 #050505;
+}
+
+.project:nth-of-type(even) {
+    transform: rotate(0.7deg);
+}
+
+.project:nth-of-type(odd) {
+    transform: rotate(-0.7deg);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(35px, 6vw, 58px);
+    line-height: 1;
+}
+
+.project-number {
+    background: #050505;
+    color: #ffe600;
+    padding: 10px 14px;
+    font-weight: 900;
+    font-size: 14px;
+    white-space: nowrap;
+    transform: rotate(2deg);
+}
+
+.project-description {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   VERSION LIST
+========================= */
+
+.version-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.version {
+    border: 3px solid #050505;
+    background: #ffffff;
+    box-shadow: 5px 5px 0 #050505;
+}
+
+.version summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 17px 20px;
+    font-weight: 900;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.version summary::-webkit-details-marker {
+    display: none;
+}
+
+.version summary::after {
+    content: "+";
+    font-size: 25px;
+    line-height: 1;
+}
+
+.version[open] summary::after {
+    content: "−";
+}
+
+.version summary:hover {
+    background: #ffe600;
+}
+
+.version-info {
+    border-top: 3px solid #050505;
+    padding: 22px;
+}
+
+.version-name {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.version-date {
+    display: inline-block;
+    background: #050505;
+    color: #8FFE09;
+    padding: 5px 9px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.version-info p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   OPEN VERSION BUTTON
+========================= */
+
+.open-version {
+    display: inline-block;
+    background: #e60012;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 900;
+    text-transform: uppercase;
+
+    padding: 11px 17px;
+
+    border: 3px solid #050505;
+    box-shadow: 4px 4px 0 #050505;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.open-version:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #050505;
+}
+
+.open-version:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #050505;
+}
+
+/* =========================
+   TECHNICAL BOX
+========================= */
+
+.tech-box {
+    margin-top: 22px;
+    padding: 20px;
+
+    background: #050505;
+    color: #f5f5f5;
+
+    border-left: 8px solid #ffe600;
+}
+
+.tech-box h3 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: 25px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.tech-box p {
+    color: #f5f5f5;
+    margin-bottom: 0;
+}
+
+/* =========================
+   DEVELOPMENT STATUS
+========================= */
+
+.status {
+    display: inline-block;
+
+    background: #175cff;
+    color: #ffffff;
+
+    border: 3px solid #050505;
+
+    padding: 7px 12px;
+
+    font-weight: 900;
+    text-transform: uppercase;
+
+    box-shadow: 4px 4px 0 #050505;
+
+    transform: rotate(-2deg);
+
+    margin-bottom: 20px;
+}
+
+/* =========================
+   END ARCHIVE
+========================= */
+
+.archive-end {
+    margin-top: 70px;
+
+    padding: 35px;
+
+    background: #050505;
+    color: #f5f5f5;
+
+    text-align: center;
+
+    border: 5px solid #050505;
+
+    box-shadow: 10px 10px 0 #e60012;
+}
+
+.archive-end h2 {
+    font-family: "Permanent Marker", cursive;
+    color: #ffe600;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.archive-end p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .logo-area {
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 42px;
+        -webkit-text-stroke: 2.5px #050505;
+        text-shadow: 5px 5px 0 #e60012;
+    }
+
+    .since {
+        margin-left: 0;
+        font-size: 16px;
+        -webkit-text-stroke: 1.3px #050505;
+        text-shadow: 3px 3px 0 #e60012;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 10px 13px;
+        font-size: 12px;
+        border-width: 3px;
+        box-shadow: 4px 4px 0 #050505;
+        margin: 0;
+    }
+
+    main {
+        padding-top: 60px;
+    }
+
+    h1 {
+        font-size: 75px;
+    }
+
+    .intro {
+        font-size: 20px;
+    }
+
+    .project {
+        padding: 22px;
+        box-shadow: 7px 7px 0 #050505;
+    }
+
+    .project-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-title {
+        font-size: 40px;
+    }
+
+    .version summary {
+        padding: 15px;
+    }
+
+    .version-info {
+        padding: 17px;
+    }
+
+    .archive-end {
+        box-shadow: 6px 6px 0 #e60012;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+<div class="shape three"></div>
+
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">
+            !Froyo¡
+        </div>
+
+        <div class="since">
+            Since 2023
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/index.html">
+            Home
+        </a>
+
+        <a href="/about.html">
+            About
+        </a>
+
+        <a href="/projects.html">
+            Projects
+        </a>
+
+        <a href="/social.html">
+            Social
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <span class="label">
+        Project Archive
+    </span>
+
+
+    <h1>
+        Projects
+    </h1>
+
+
+    <p class="intro">
+        A collection of software, experiments, prototypes and systems
+        created throughout my programming journey. Each project documents
+        a different stage of learning, experimentation and development.
+    </p>
+
+
+    <!-- ==========================================
+         F.A.H.A.D
+    =========================================== -->
+
+    <section class="project">
+
+        <div class="project-header">
+
+            <div class="project-title">
+                F.A.H.A.D
+            </div>
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+        </div>
+
+
+        <p class="project-description">
+
+            F.A.H.A.D stands for FAST ASYMMETRIC HASH-BASED ALGORITHM
+            FOR DECRYPTION. It is a Semantic Block (SB) encoding system
+            created by Fahad Al-Belal. The project converts raw letters
+            and sentences into static cryptographic symbols through a
+            fixed matrix mapping system.
+
+        </p>
+
+
+        <div class="version-list">
+
+
+            <details class="version">
+
+                <summary>
+                    Version 01 — First Encoder
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 01
+                    </div>
+
+                    <div class="version-date">
+                        07 DEC 2025
+                    </div>
+
+
+                    <p>
+
+                        The earliest version of F.A.H.A.D. This was the
+                        beginning of the encoder system. It had no sounds,
+                        enhanced UI or additional encryption layers.
+                        The mapping was visible and login was required.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1DsDD-hcp9JH7IVjvhA4w0k0tkcOeVSZE/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+
+            <details class="version">
+
+                <summary>
+                    Version 02 — BYPASS_BOOT
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 02
+                    </div>
+
+                    <div class="version-date">
+                        11 FEB 2026
+                    </div>
+
+
+                    <p>
+
+                        Introduced BYPASS_BOOT, allowing the program to
+                        be used without going through the login process.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1DjouQhx-Dl31SHjR74TFdjOGuNKuYMjm/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+
+            <details class="version">
+
+                <summary>
+                    Version 03 — Mapping Hidden
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 03
+                    </div>
+
+                    <div class="version-date">
+                        07 APR 2026
+                    </div>
+
+
+                    <p>
+
+                        The mapping codes were removed from the interface
+                        for security. Export and import functionality was
+                        still missing. An ASCII boot screen was introduced.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1bVOlgssLCUWx1s6HhOlGWOrZisx7Dg9p/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+
+            <details class="version">
+
+                <summary>
+                    Version 04 — Vault
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 04
+                    </div>
+
+                    <div class="version-date">
+                        23 MAY 2026
+                    </div>
+
+
+                    <p>
+
+                        Added sound effects, matrix-raining transparency
+                        effects and export/import vault functionality.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/14VXSSQwxDcjMgxtm2yQNNBOKX9nQNn47/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+
+            <details class="version">
+
+                <summary>
+                    Version 05 — Vault Password
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 05
+                    </div>
+
+                    <div class="version-date">
+                        30 JUN 2026
+                    </div>
+
+
+                    <p>
+
+                        Added three more ASCII images to the boot screen
+                        and introduced a password system for the
+                        export/import vault.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1hwJVDKWae2AapgzYKTgHkZGgB00ety13/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+
+            <details class="version">
+
+                <summary>
+                    Version 06 — Final
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 06 Final
+                    </div>
+
+                    <div class="version-date">
+                        21 SEP 2026
+                    </div>
+
+
+                    <p>
+
+                        The final F.A.H.A.D version. The system combines
+                        multiple rounds of Base64, AES-256, F.A.H.A.D
+                        encoding and scrambling, with a password used
+                        by the receiver.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1CzVL2tTGMDObPVLx07b74wZqaJssiGBy/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         !FROYO¡ NES
+    =========================================== -->
+
+    <section class="project">
+
+        <div class="project-header">
+
+            <div class="project-title">
+                !Froyo¡ NES
+            </div>
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+        </div>
+
+
+        <p class="project-description">
+
+            A Nintendo Entertainment System emulator project built
+            during the development journey of !Froyo¡. The project
+            progressed from a beginner Kotlin implementation into
+            a C/C++ rewritten emulator with significantly deeper
+            hardware-level work.
+
+        </p>
+
+
+        <div class="version-list">
+
+
+            <details class="version">
+
+                <summary>
+                    Version 01 — Kotlin
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 01
+                    </div>
+
+                    <div class="version-date">
+                        16 MAR 2026
+                    </div>
+
+
+                    <p>
+
+                        A beginner Kotlin implementation and an important
+                        learning milestone. The emulator had a basic UI,
+                        but performance was laggy, choppy and generally
+                        unplayable.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1tKei5rhV8Fvml41WKO-5uywI-i3Ok8-s/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+
+            <details class="version">
+
+                <summary>
+                    Version 02 — Final C/C++ Rewrite
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Version 02 Final
+                    </div>
+
+                    <div class="version-date">
+                        24 APR 2026
+                    </div>
+
+
+                    <p>
+
+                        A complete rewrite using C/C++. CPU, PPU and APU
+                        processing was optimized and deeper manual
+                        configuration was introduced.
+
+                    </p>
+
+
+                    <div class="tech-box">
+
+                        <h3>
+                            Technical Features
+                        </h3>
+
+                        <p>
+
+                            Pixel-perfect graphics, Jetpack Compose Canvas,
+                            reusable offscreen bitmaps, nearest-neighbor
+                            scaling, MMC3/MMC5 scanline IRQ, cycle-accurate
+                            CPU checks, MMC5 math multiplier, MMC5 audio,
+                            ExRAM and ExGrafix.
+
+                        </p>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1ASNkBB6ai3OlH6Sg3iuHNEX5dxVO0pFt/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         !FROYO¡ BROWSER
+    =========================================== -->
+
+    <section class="project">
+
+        <div class="project-header">
+
+            <div class="project-title">
+                !Froyo¡ Browser
+            </div>
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+        </div>
+
+
+        <p class="project-description">
+
+            A single-version browser project created as a learning
+            playground and time capsule from the earlier stage of
+            the development journey.
+
+        </p>
+
+
+        <div class="version-list">
+
+            <details class="version">
+
+                <summary>
+                    Single & Final Version
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Single & Final
+                    </div>
+
+                    <div class="version-date">
+                        09 OCT 2024
+                    </div>
+
+
+                    <p>
+
+                        A learning playground and time capsule project.
+                        This version represents an early experiment
+                        with browser-related software.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1x93dPRcNMVkZQYmMX9ewU6fWbizMhobi/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         !FROYO¡ NET
+    =========================================== -->
+
+    <section class="project">
+
+        <div class="project-header">
+
+            <div class="project-title">
+                !Froyo¡ Net
+            </div>
+
+            <div class="project-number">
+                PROJECT 04
+            </div>
+
+        </div>
+
+
+        <span class="status">
+            Under Development
+        </span>
+
+
+        <p class="project-description">
+
+            A networking tool focused on unusual and flexible
+            configuration possibilities. !Froyo¡ Net is currently
+            under active development.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         PHALQONOS WEB
+    =========================================== -->
+
+    <section class="project">
+
+        <div class="project-header">
+
+            <div class="project-title">
+                PhalqonOS
+            </div>
+
+            <div class="project-number">
+                PROJECT 05
+            </div>
+
+        </div>
+
+
+        <p class="project-description">
+
+            The first HTML-based edition of PhalqonOS. It served as
+            an early prototype of the ideas that eventually evolved
+            into F.A.H.A.D, carrying the same Semantic Block mapping
+            and terminology philosophy.
+
+        </p>
+
+
+        <div class="version-list">
+
+            <details class="version">
+
+                <summary>
+                    Web Edition vX.1.1
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        Web Edition vX.1.1
+                    </div>
+
+                    <div class="version-date">
+                        HTML EDITION
+                    </div>
+
+
+                    <p>
+
+                        The first HTML-based PhalqonOS project and
+                        an important prototype in the evolution of
+                        the Semantic Block system.
+
+                    </p>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1uctcQRJiAx2Pd2lgv8LCPHlUiJNhbk0d/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         PHALQONOS ORIGIN
+    =========================================== -->
+
+    <section class="project">
+
+        <div class="project-header">
+
+            <div class="project-title">
+                PhalqonOS Origin
+            </div>
+
+            <div class="project-number">
+                PROJECT 06
+            </div>
+
+        </div>
+
+
+        <p class="project-description">
+
+            The original PhalqonOS environment created on
+            11 November 2023. A Bash terminal-based operating
+            environment built around a custom Semantic Block cipher.
+
+        </p>
+
+
+        <div class="version-list">
+
+            <details class="version">
+
+                <summary>
+                    Origin — 11 Nov 2023
+                </summary>
+
+
+                <div class="version-info">
+
+                    <div class="version-name">
+                        PhalqonOS Origin
+                    </div>
+
+                    <div class="version-date">
+                        11 NOV 2023
+                    </div>
+
+
+                    <p>
+
+                        The historical origin of PhalqonOS and one of
+                        the earliest programming milestones. It used
+                        Bash associative arrays to implement live
+                        Semantic Block encoding and decoding.
+
+                    </p>
+
+
+                    <p>
+
+                        The project was designed for universal deployment
+                        across Linux, macOS and Windows WSL, as well as
+                        mobile terminal environments.
+
+                    </p>
+
+
+                    <div class="tech-box">
+
+                        <h3>
+                            Origin
+                        </h3>
+
+                        <p>
+
+                            This project represents the beginning of
+                            the Semantic Block architecture that later
+                            influenced F.A.H.A.D and other projects.
+
+                        </p>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <a
+                        class="open-version"
+                        href="https://drive.google.com/file/d/1GHk1PGt8OiU-d73nQPVVQdH-nq4P6-N8/view?usp=drivesdk"
+                    >
+                        Open Version
+                    </a>
+
+                </div>
+
+            </details>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         END
+    =========================================== -->
+
+    <section class="archive-end">
+
+        <h2>
+            Built From Scratch.
+        </h2>
+
+        <p>
+
+            Every project in this archive represents a different
+            experiment, lesson or milestone in the journey from
+            curiosity to creation.
+
+        </p>
+
+    </section>
+
+</main>
+
+</body>
+</html>
