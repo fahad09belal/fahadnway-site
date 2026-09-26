@@ -1,520 +1,1931 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Fahad Al-Belal — developer, creator and creator of !Froyo!">
-
-    <title>Fahad Al-Belal | Developer</title>
-
-    <style>
-        :root {
-            --green: #8FFE09;
-            --black: #080808;
-            --dark: #111111;
-            --gray: #a0a0a0;
-            --border: #292929;
-            --white: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 18px 7%;
-
-            background: rgba(8, 8, 8, 0.92);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(12px);
-        }
-
-        .logo {
-            color: var(--green);
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            color: var(--green);
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 85vh;
-
-            display: flex;
-            align-items: center;
-
-            padding: 80px 7%;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(143, 254, 9, 0.12),
-                    transparent 35%
-                ),
-                var(--black);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>!Froyo¡ — Fahad Al-Belal</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #8FFE09;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   ABSTRACT BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    background: #8FFE09;
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(#111 1px, transparent 1px),
+        linear-gradient(90deg, #111 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.14;
+}
+
+.shape {
+    position: absolute;
+    border: 5px solid #111;
+    filter: drop-shadow(12px 12px 0 #111);
+}
+
+.shape-yellow {
+    width: 430px;
+    height: 260px;
+    background: #FFE900;
+    top: 8%;
+    left: -90px;
+    border-radius: 48% 52% 38% 62%;
+    transform: rotate(-13deg);
+}
+
+.shape-red {
+    width: 360px;
+    height: 300px;
+    background: #F52B20;
+    right: -90px;
+    top: 25%;
+    border-radius: 55% 45% 60% 40%;
+    transform: rotate(18deg);
+}
+
+.shape-blue {
+    width: 330px;
+    height: 220px;
+    background: #1857FF;
+    left: 8%;
+    bottom: -80px;
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+.shape-black {
+    width: 260px;
+    height: 260px;
+    background: #111;
+    right: 10%;
+    bottom: 8%;
+    border-radius: 40% 60% 45% 55%;
+    transform: rotate(25deg);
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 90px 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    padding: 25px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+}
+
+.froyo-logo {
+    position: relative;
+    display: inline-block;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+
+    font-size: clamp(42px, 8vw, 88px);
+    line-height: 0.85;
+    letter-spacing: -4px;
+
+    font-style: italic;
+    font-weight: 900;
+
+    color: #FFE900;
+
+    -webkit-text-stroke: 4px #111;
+
+    text-shadow:
+        7px 7px 0 #111,
+        13px 13px 0 #F52B20;
+
+    transform: skewX(-8deg);
+
+    transition: 0.2s ease;
+}
+
+.froyo-logo::after {
+    content: "";
+    position: absolute;
+    height: 7px;
+    background: #111;
+    left: 3px;
+    right: -10px;
+    bottom: -12px;
+    transform: skewX(-10deg);
+}
+
+.brand-since {
+    margin-top: 16px;
+    margin-left: 5px;
+
+    color: #111;
 
-        .hero-content {
-            max-width: 900px;
-        }
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
 
-        .eyebrow {
-            display: inline-block;
+    font-size: clamp(15px, 2vw, 21px);
+    font-style: italic;
+    font-weight: 900;
 
-            padding: 7px 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
-            background: var(--green);
-            color: #000000;
+    transform: skewX(-8deg);
 
-            border-radius: 6px;
+    text-shadow: 2px 2px 0 #FFE900;
+}
 
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+.froyo-logo:hover {
+    color: #F52B20;
+    transform: skewX(-8deg) scale(1.04);
+}
 
-            margin-bottom: 25px;
-        }
+nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
 
-        h1 {
-            font-size: clamp(48px, 9vw, 100px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-            margin-bottom: 28px;
-        }
+nav a {
+    text-decoration: none;
+    color: #111;
+    background: #FFE900;
 
-        h1 span {
-            color: var(--green);
-        }
+    border: 4px solid #111;
+    padding: 10px 17px;
 
-        .hero-text {
-            max-width: 650px;
+    font-weight: 900;
+    text-transform: uppercase;
 
-            color: var(--gray);
-            font-size: 19px;
-        }
+    box-shadow: 6px 6px 0 #111;
 
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+    transition: 0.15s ease;
+}
 
-            margin-top: 35px;
-        }
+nav a:hover {
+    background: #F52B20;
+    color: #FFE900;
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #111;
+}
 
-        .button {
-            display: inline-block;
+/* =========================
+   HERO
+========================= */
 
-            padding: 13px 20px;
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
 
-            border: 1px solid var(--border);
-            border-radius: 8px;
+.hero-content {
+    width: 100%;
+}
 
-            color: #ffffff;
-            text-decoration: none;
+.hero-tag {
+    display: inline-block;
 
-            font-weight: 700;
-            font-size: 14px;
+    background: #111;
+    color: #FFE900;
 
-            transition: 0.2s ease;
-        }
+    border: 4px solid #111;
 
-        .button.primary {
-            background: var(--green);
-            color: #000000;
-            border-color: var(--green);
-        }
+    padding: 9px 15px;
+    margin-bottom: 25px;
 
-        .button:hover {
-            transform: translateY(-2px);
-        }
+    font-weight: 900;
+    letter-spacing: 1px;
+}
 
-        /* ABOUT */
+.hero h1 {
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
 
-        section {
-            padding: 100px 7%;
-        }
+    font-size: clamp(90px, 18vw, 230px);
+    line-height: 0.72;
 
-        .about {
-            background: #0d0d0d;
-        }
+    font-style: italic;
+    letter-spacing: -10px;
 
-        .about-grid {
-            display: grid;
+    color: #FFE900;
 
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
+    -webkit-text-stroke: 6px #111;
 
-            gap: 60px;
+    text-shadow:
+        12px 12px 0 #111,
+        24px 24px 0 #F52B20;
 
-            align-items: center;
-        }
+    transform: skewX(-7deg);
 
-        .section-label {
-            color: var(--green);
+    margin-left: -10px;
+    margin-bottom: 55px;
+}
 
-            font-size: 12px;
-            font-weight: 800;
+.hero-description {
+    max-width: 720px;
 
-            text-transform: uppercase;
-            letter-spacing: 2px;
+    background: #FFE900;
 
-            margin-bottom: 12px;
-        }
+    border: 5px solid #111;
+    box-shadow: 10px 10px 0 #111;
 
-        h2 {
-            font-size: clamp(32px, 5vw, 52px);
-            line-height: 1.05;
-            letter-spacing: -2px;
+    padding: 25px;
 
-            margin-bottom: 15px;
-        }
+    font-size: clamp(18px, 2.2vw, 25px);
+    font-weight: 800;
+    line-height: 1.35;
+}
 
-        .about-text {
-            color: var(--gray);
-            font-size: 17px;
-            max-width: 650px;
-        }
+/* =========================
+   SECTION HEADINGS
+========================= */
 
-        .about-box {
-            background: var(--green);
-            color: #000000;
+.section-title {
+    display: inline-block;
 
-            border-radius: 16px;
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
 
-            padding: 40px;
-        }
+    font-size: clamp(55px, 9vw, 105px);
+    font-style: italic;
 
-        .about-box strong {
-            display: block;
+    letter-spacing: -3px;
 
-            font-size: 42px;
-            line-height: 1;
+    color: #FFE900;
 
-            margin-bottom: 10px;
-        }
+    -webkit-text-stroke: 4px #111;
 
-        .about-box p {
-            font-weight: 700;
-        }
+    text-shadow:
+        7px 7px 0 #111,
+        13px 13px 0 #F52B20;
 
-        /* FROYO */
+    transform: skewX(-7deg);
 
-        .froyo {
-            background: var(--black);
-        }
+    margin-bottom: 45px;
+}
 
-        .froyo-card {
-            max-width: 850px;
+/* =========================
+   ABOUT
+========================= */
 
-            padding: 40px;
+.about-box {
+    background: #FFE900;
 
-            background: var(--dark);
+    border: 5px solid #111;
+    box-shadow: 10px 10px 0 #111;
 
-            border: 1px solid var(--border);
-            border-radius: 16px;
-        }
+    padding: clamp(25px, 5vw, 50px);
 
-        .froyo-card h2 {
-            margin-bottom: 8px;
-        }
+    max-width: 950px;
 
-        .froyo-year {
-            color: var(--green);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+}
 
-            font-size: 13px;
-            font-weight: 800;
+.about-box p + p {
+    margin-top: 20px;
+}
 
-            letter-spacing: 1px;
+/* =========================
+   PROJECTS
+========================= */
 
-            margin-bottom: 20px;
-        }
+.projects-intro {
+    background: #111;
+    color: #FFE900;
 
-        .froyo-card p {
-            color: var(--gray);
-            font-size: 17px;
-        }
+    border: 4px solid #111;
 
-        /* SOCIAL */
+    padding: 15px 20px;
 
-        .socials {
-            background: var(--green);
-            color: #000000;
-        }
+    margin-bottom: 35px;
 
-        .socials .section-label {
-            color: #000000;
-        }
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
 
-        .social-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
 
-        .social-link {
-            padding: 14px 18px;
+.project-card {
+    background: #E9E9E9;
 
-            border: 2px solid #000000;
-            border-radius: 8px;
+    border: 5px solid #111;
+    box-shadow: 10px 10px 0 #111;
 
-            color: #000000;
-            text-decoration: none;
+    padding: clamp(22px, 4vw, 38px);
 
-            font-weight: 800;
+    position: relative;
+}
 
-            transition: 0.2s ease;
-        }
+.project-card.full-width {
+    grid-column: 1 / -1;
+}
 
-        .social-link:hover {
-            background: #000000;
-            color: var(--green);
-        }
+.project-card h3 {
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
 
-        /* FOOTER */
+    font-size: clamp(34px, 5vw, 58px);
+    font-style: italic;
 
-        footer {
-            padding: 35px 7%;
+    letter-spacing: -1px;
 
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
+    margin: 10px 0;
 
-            background: #050505;
+    text-transform: uppercase;
+}
 
-            color: #777;
+.project-card p {
+    font-size: 18px;
+    line-height: 1.55;
+    font-weight: 600;
 
-            font-size: 13px;
-        }
+    margin-top: 16px;
+}
 
-        footer strong {
-            color: var(--green);
-        }
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
 
-        /* MOBILE */
+.project-date {
+    display: inline-block;
 
-        @media (max-width: 600px) {
+    background: #111;
+    color: #FFE900;
 
-            nav {
-                padding: 16px 5%;
-            }
+    padding: 6px 10px;
 
-            nav div:last-child {
-                display: none;
-            }
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
 
-            .hero {
-                min-height: 75vh;
-                padding: 70px 5%;
-            }
+.project-status {
+    display: inline-block;
 
-            h1 {
-                letter-spacing: -3px;
-            }
+    padding: 7px 11px;
 
-            .hero-text {
-                font-size: 17px;
-            }
+    border: 3px solid #111;
 
-            section {
-                padding: 75px 5%;
-            }
+    font-size: 12px;
+    font-weight: 900;
 
-            .froyo-card {
-                padding: 28px;
-            }
+    letter-spacing: 1px;
+}
 
-            footer {
-                padding: 30px 5%;
-            }
-        }
-    </style>
+.project-status.final {
+    background: #F52B20;
+    color: #FFE900;
+}
+
+.project-status.dev {
+    background: #1857FF;
+    color: #fff;
+}
+
+.project-status.archive {
+    background: #111;
+    color: #FFE900;
+}
+
+/* =========================
+   VERSION HISTORY
+========================= */
+
+.version-list {
+    margin-top: 30px;
+
+    display: grid;
+    gap: 15px;
+}
+
+.version {
+    background: #D6D6D6;
+
+    border: 3px solid #111;
+    border-left: 9px solid #F52B20;
+
+    padding: 20px;
+}
+
+.version h4 {
+    font-size: 23px;
+    font-weight: 900;
+    margin-bottom: 7px;
+}
+
+.version-date {
+    font-size: 13px;
+    font-weight: 900;
+
+    color: #555;
+
+    margin-bottom: 12px;
+}
+
+.version p {
+    margin-top: 0;
+}
+
+.version ul {
+    margin-top: 12px;
+    padding-left: 25px;
+
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.feature-box {
+    background: #FFE900;
+
+    border: 4px solid #111;
+
+    padding: 20px;
+
+    margin-top: 25px;
+}
+
+.feature-box strong {
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+    letter-spacing: 1px;
+}
+
+.feature-box ul {
+    padding-left: 25px;
+
+    font-weight: 800;
+    line-height: 1.7;
+}
+
+/* =========================
+   PHALQONOS INSTALL GUIDE
+========================= */
+
+.install-section {
+    margin-top: 18px;
+
+    background: #D6D6D6;
+
+    border: 4px solid #111;
+
+    box-shadow: 5px 5px 0 #111;
+}
+
+.install-section summary {
+    cursor: pointer;
+
+    background: #111;
+    color: #FFE900;
+
+    padding: 16px 20px;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    list-style: none;
+}
+
+.install-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.install-section summary::after {
+    content: "+";
+    float: right;
+
+    font-size: 22px;
+}
+
+.install-section[open] summary::after {
+    content: "−";
+}
+
+.install-content {
+    padding: 22px;
+}
+
+.install-content h4 {
+    margin-top: 18px;
+    margin-bottom: 7px;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.install-content p {
+    margin-top: 10px;
+}
+
+.install-content pre {
+    margin: 12px 0;
+
+    padding: 16px;
+
+    overflow-x: auto;
+
+    background: #111;
+    color: #FFE900;
+
+    border: 3px solid #111;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.install-content code {
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+}
+
+.install-content ol {
+    padding-left: 25px;
+
+    line-height: 1.7;
+    font-weight: 700;
+}
+
+.install-content li {
+    margin-bottom: 12px;
+}
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
+
+.download-btn {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    background: #111;
+    color: #FFE900;
+
+    border: 4px solid #111;
+
+    padding: 13px 20px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    box-shadow: 6px 6px 0 #F52B20;
+
+    transition: 0.15s ease;
+}
+
+.download-btn:hover {
+    background: #F52B20;
+    color: #FFE900;
+
+    transform: translate(3px, 3px);
+
+    box-shadow: 3px 3px 0 #111;
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.social-link {
+    display: block;
+
+    background: #FFE900;
+
+    color: #111;
+
+    text-decoration: none;
+
+    border: 5px solid #111;
+
+    padding: 25px;
+
+    font-size: 23px;
+    font-weight: 900;
+
+    box-shadow: 8px 8px 0 #111;
+
+    transition: 0.15s ease;
+}
+
+.social-link:hover {
+    background: #F52B20;
+    color: #FFE900;
+
+    transform: translate(4px, 4px);
+
+    box-shadow: 4px 4px 0 #111;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111;
+    color: #FFE900;
+
+    border-top: 6px solid #111;
+
+    padding: 45px 0;
+
+    margin-top: 50px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+.footer-title {
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+
+    font-size: 38px;
+    font-style: italic;
+}
+
+.footer-text {
+    max-width: 600px;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.footer-legal {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 2px solid #FFE900;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    opacity: 0.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.full-width {
+        grid-column: auto;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: clamp(75px, 19vw, 150px);
+        letter-spacing: -6px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    section {
+        padding: 65px 0;
+    }
+
+    .froyo-logo {
+        font-size: 55px;
+    }
+
+    .brand-since {
+        margin-top: 14px;
+        font-size: 15px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+        letter-spacing: -5px;
+        -webkit-text-stroke: 4px #111;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-card h3 {
+        font-size: 38px;
+    }
+
+    .shape-yellow {
+        width: 300px;
+    }
+
+    .shape-red {
+        width: 270px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+<!-- =========================
+     ABSTRACT BACKGROUND
+========================= -->
 
-    <nav>
+<div class="background">
+    <div class="grid"></div>
 
-        <div class="logo">
-            FAHAD NWAY
-        </div>
+    <div class="shape shape-yellow"></div>
+    <div class="shape shape-red"></div>
+    <div class="shape shape-blue"></div>
+    <div class="shape shape-black"></div>
+</div>
 
-        <div>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <div class="container header-inner">
+
+        <a href="#top" class="brand">
+
+            <div class="froyo-logo">
+                !Froyo¡
+            </div>
+
+            <div class="brand-since">
+                Since 2023
+            </div>
+
+        </a>
+
+        <nav>
             <a href="#about">About</a>
-            <a href="#froyo">!Froyo!</a>
-            <a href="#socials">Contact</a>
+            <a href="#projects">Projects</a>
+            <a href="#social">Social</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main id="top">
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <div class="hero-tag">
+            FAHAD AL-BELAL · PERSONAL PROJECT ARCHIVE
         </div>
 
-    </nav>
+        <h1>!Froyo¡</h1>
 
-
-    <!-- HERO -->
-
-    <header class="hero">
-
-        <div class="hero-content">
-
-            <div class="eyebrow">
-                Developer · Creator
-            </div>
-
-            <h1>
-                Building<br>
-                <span>my own way.</span>
-            </h1>
-
-            <p class="hero-text">
-                I'm Fahad Al-Belal, a developer creating apps,
-                experimenting with technology and turning ideas
-                into working software.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a class="button primary" href="#froyo">
-                    !Froyo!
-                </a>
-
-                <a class="button" href="#socials">
-                    Find Me
-                </a>
-
-            </div>
-
+        <div class="hero-description">
+            A personal collection of experiments, software projects,
+            emulation work, networking ideas, and whatever interesting
+            idea happens to cross my mind.
         </div>
 
-    </header>
+    </div>
+
+</section>
 
 
-    <!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
-    <section id="about" class="about">
+<section id="about">
 
-        <div class="about-grid">
+    <div class="container">
 
-            <div>
+        <h2 class="section-title">ABOUT</h2>
 
-                <div class="section-label">
-                    About
-                </div>
-
-                <h2>
-                    Independent by design.
-                </h2>
-
-                <p class="about-text">
-                    I'm Fahad Al-Belal. I build software,
-                    experiment with technology and develop
-                    independent projects.
-                </p>
-
-            </div>
-
-
-            <div class="about-box">
-
-                <strong>2024+</strong>
-
-                <p>
-                    Building, experimenting and learning
-                    through independent software projects.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FROYO -->
-
-    <section id="froyo" class="froyo">
-
-        <div class="section-label">
-            Featured Project
-        </div>
-
-        <div class="froyo-card">
-
-            <div class="froyo-year">
-                PROJECT !FROYO! · SINCE 2024
-            </div>
-
-            <h2>
-                !Froyo!
-            </h2>
+        <div class="about-box">
 
             <p>
-                A mobile networking and connectivity project
-                focused on flexible tethering and
-                device-to-device communication.
+                I’m Fahad Al-Belal, a developer who enjoys experimenting
+                with software, low-level systems, emulation, networking,
+                security concepts, and whatever interesting idea happens
+                to cross my mind.
+            </p>
+
+            <p>
+                This website acts as an archive of unfinished experiments,
+                old releases, rewrites, prototypes, and final versions.
+                Some projects are here because they are useful. Others are
+                here simply because they represent an important point in
+                my development journey.
             </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- SOCIALS -->
+<!-- =========================
+     PROJECTS
+========================= -->
 
-    <section id="socials" class="socials">
+<section id="projects">
 
-        <div class="section-label">
-            Social
+    <div class="container">
+
+        <h2 class="section-title">PROJECTS</h2>
+
+        <div class="projects-intro">
+            PROJECTS ARE PRESENTED AS DEVELOPMENT HISTORY AND PERSONAL
+            MILESTONES. SOME OLDER PROJECTS ARE KEPT PURELY AS ARCHIVES.
         </div>
 
-        <h2>
-            Find me online.
-        </h2>
+
+        <div class="projects-grid">
+
+
+            <!-- =========================
+                 PROJECT 01 — F.A.H.A.D
+            ========================= -->
+
+            <article class="project-card full-width">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <span class="project-status final">
+                            FINAL VERSION
+                        </span>
+
+                        <h3>F.A.H.A.D</h3>
+
+                        <span class="project-date">
+                            21.09.2026
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    F.A.H.A.D (FAST ASYMMETRIC HASH-BASED ALGORITHM FOR
+                    DECRYPTION) SEMANTIC BLOCK (SB) SCHEMES WAS CREATED
+                    BY FAHAD AL-BELAL. It converts raw letters and
+                    sentences directly into static cryptographic symbols
+                    according to a firm matrix map.
+                </p>
+
+
+                <div class="version-list">
+
+                    <div class="version">
+
+                        <h4>Version 01</h4>
+
+                        <div class="version-date">
+                            07 December 2025
+                        </div>
+
+                        <p>
+                            The earliest version. No sounds, no enhanced
+                            UI, no extra encryption — just the mapping.
+                            The mapping was already revealed.
+                        </p>
+
+                        <ul>
+                            <li>Login required</li>
+                            <li>First test version</li>
+                            <li>Basic mapping system</li>
+                        </ul>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1DsDD-hcp9JH7IVjvhA4w0k0tkcOeVSZE/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD VERSION 01
+                        </a>
+
+                    </div>
+
+
+                    <div class="version">
+
+                        <h4>Version 02</h4>
+
+                        <div class="version-date">
+                            11 February 2026
+                        </div>
+
+                        <p>
+                            Introduced
+                            <strong>BYPASS_BOOT</strong>
+                            to allow the application to be used without
+                            login.
+                        </p>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1DjouQhx-Dl31SHjR74TFdjOGuNKuYMjm/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD VERSION 02
+                        </a>
+
+                    </div>
+
+
+                    <div class="version">
+
+                        <h4>Version 03</h4>
+
+                        <div class="version-date">
+                            07 April 2026
+                        </div>
+
+                        <p>
+                            Mapping codes were removed for security.
+                            Export/import was still missing. An ASCII
+                            boot-up screen introducing the creator of
+                            !Froyo¡ was also added.
+                        </p>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1bVOlgssLCUWx1s6HhOlGWOrZisx7Dg9p/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD VERSION 03
+                        </a>
+
+                    </div>
+
+
+                    <div class="version">
+
+                        <h4>Version 04</h4>
+
+                        <div class="version-date">
+                            23 May 2026
+                        </div>
+
+                        <p>
+                            Added sound effects, transparent matrix-rain
+                            effects, an improved UI, and Export/Import
+                            vault features.
+                        </p>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/14VXSSQwxDcjMgxtm2yQNNBOKX9nQNn47/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD VERSION 04
+                        </a>
+
+                    </div>
+
+
+                    <div class="version">
+
+                        <h4>Version 05</h4>
+
+                        <div class="version-date">
+                            30 June 2026
+                        </div>
+
+                        <p>
+                            Added three more ASCII images to the boot
+                            screen and introduced an export/import vault
+                            password.
+                        </p>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1hwJVDKWae2AapgzYKTgHkZGgB00ety13/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD VERSION 05
+                        </a>
+
+                    </div>
+
+
+                    <div class="version">
+
+                        <h4>Version 06 — Final Version</h4>
+
+                        <div class="version-date">
+                            21 September 2026
+                        </div>
+
+                        <p>
+                            The final version introduced multiple layers
+                            of processing and protection.
+                        </p>
+
+                        <ul>
+                            <li>Multiple Base64 encoding layers</li>
+                            <li>Multiple AES-256 encryption layers</li>
+                            <li>Multiple F.A.H.A.D encoding layers</li>
+                            <li>Additional scrambling</li>
+                            <li>
+                                Receiver password required to decrypt
+                                protected files
+                            </li>
+                        </ul>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1CzVL2tTGMDObPVLx07b74wZqaJssiGBy/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD FINAL VERSION
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PROJECT 02 — NES EMULATOR
+            ========================= -->
+
+            <article class="project-card full-width">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <span class="project-status final">
+                            FINAL VERSION
+                        </span>
+
+                        <h3>!Froyo¡ NES Emulator</h3>
+
+                        <span class="project-date">
+                            24.04.2026
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    My first serious step into emulation development.
+                    Version 01 was built while I was a complete beginner
+                    in emulation development, core systems, and architecture.
+                    It was rough, heavily laggy, and largely unplayable.
+                </p>
+
+
+                <div class="version-list">
+
+                    <div class="version">
+
+                        <h4>Version 01</h4>
+
+                        <div class="version-date">
+                            16 March 2026
+                        </div>
+
+                        <p>
+                            The first attempt was written completely in
+                            Kotlin. The UI was very basic and performance
+                            was poor, but it became an important milestone.
+                        </p>
+
+                        <ul>
+                            <li>Complete beginner emulation project</li>
+                            <li>Written in Kotlin</li>
+                            <li>Heavy lag and choppy frame rates</li>
+                            <li>Very basic UI</li>
+                            <li>Kept as a development milestone</li>
+                        </ul>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1tKei5rhV8Fvml41WKO-5uywI-i3Ok8-s/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD VERSION 01
+                        </a>
+
+                    </div>
+
+
+                    <div class="version">
+
+                        <h4>Version 02 — Final</h4>
+
+                        <div class="version-date">
+                            24 April 2026
+                        </div>
+
+                        <p>
+                            After another month of studying emulation,
+                            the emulator was completely rewritten in
+                            C/C++ with a much deeper focus on performance
+                            and hardware behavior.
+                        </p>
+
+                        <ul>
+                            <li>Complete C/C++ rewrite</li>
+                            <li>Optimized CPU</li>
+                            <li>Optimized PPU</li>
+                            <li>Optimized APU</li>
+                            <li>Deep manual configuration system</li>
+                            <li>Total control over how you play</li>
+                        </ul>
+
+                        <a
+                            class="download-btn"
+                            href="https://drive.google.com/file/d/1ASNkBB6ai3OlH6Sg3iuHNEX5dxVO0pFt/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            DOWNLOAD FINAL VERSION
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-box">
+
+                    <strong>TECHNICAL FEATURES</strong>
+
+                    <ul>
+                        <li>Pixel-perfect optimized graphics</li>
+                        <li>Low-overhead Jetpack Compose Canvas</li>
+                        <li>Reusable offscreen bitmaps</li>
+                        <li>Nearest-neighbor scaling</li>
+                        <li>MMC3 &amp; MMC5 scanline IRQ support</li>
+                        <li>Cycle-accurate CPU execution checks</li>
+                        <li>MMC5 math multiplier</li>
+                        <li>MMC5 audio channels</li>
+                        <li>ExRAM &amp; ExGrafix</li>
+                    </ul>
+
+                </div>
+
+                <p>
+                    Maybe a !Froyo¡ Switch 2 emulator is next on the
+                    roadmap... a dev can dream!
+                </p>
+
+            </article>
+
+
+            <!-- =========================
+                 PROJECT 03 — BROWSER
+            ========================= -->
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <span class="project-status final">
+                            SINGLE &amp; FINAL VERSION
+                        </span>
+
+                        <h3>!Froyo¡ Browser</h3>
+
+                        <span class="project-date">
+                            09.10.2024
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Every developer has a project they bury at the
+                    bottom of their site, and this is mine.
+                    !Froyo¡ Browser only ever saw a single release.
+                </p>
+
+                <p>
+                    It wasn’t built to revolutionize the web; it was
+                    just an easy, fun playground for me to learn the
+                    absolute basics of coding.
+                </p>
+
+                <p>
+                    I keep it here as a time capsule of where my
+                    programming journey started
+                    (even if I cringe a little looking at the code now).
+                </p>
+
+
+                <div class="feature-box">
+
+                    <strong>FEATURES</strong>
+
+                    <ul>
+                        <li>Chromium / Android WebView based rendering</li>
+                        <li>Desktop Mode</li>
+                        <li>4 quick shortcuts</li>
+                        <li>Multi-tab browsing</li>
+                        <li>Universal search</li>
+                        <li>Bookmarks</li>
+                        <li>Browsing history</li>
+                        <li>Download manager</li>
+                        <li>Privacy and security controls</li>
+                    </ul>
+
+                </div>
+
+
+                <a
+                    class="download-btn"
+                    href="https://drive.google.com/file/d/1x93dPRcNMVkZQYmMX9ewU6fWbizMhobi/view?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    DOWNLOAD SINGLE &amp; FINAL VERSION
+                </a>
+
+            </article>
+
+
+            <!-- =========================
+                 PROJECT 04 — NET
+            ========================= -->
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <span class="project-status dev">
+                            UNDER DEVELOPMENT
+                        </span>
+
+                        <h3>!Froyo¡ Net</h3>
+
+                        <span class="project-date">
+                            ACTIVE PROJECT
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    A networking tool focused on flexible and unusual
+                    network configurations.
+                </p>
+
+                <p>
+                    !Froyo¡ Net is currently under development.
+                </p>
+
+
+                <div class="feature-box">
+
+                    <strong>STATUS</strong>
+
+                    <ul>
+                        <li>Active development</li>
+                        <li>Networking-focused</li>
+                        <li>Experimental project</li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PROJECT 05 — PHALQONOS WEB
+            ========================= -->
+
+            <article class="project-card full-width">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <span class="project-status archive">
+                            ARCHIVED PROTOTYPE
+                        </span>
+
+                        <h3>PhalqonOS — Web Edition vX.1.1</h3>
+
+                        <span class="project-date">
+                            WEB EDITION
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    It was my very first HTML-based app.
+                    Oh wait — what is PhalqonOS?
+                </p>
+
+
+                <p>
+                    PhalqonOS was the prototype of F.A.H.A.D.
+                    It kept the same core ideology of mapping and some
+                    of the same terminology, but later it mutated and
+                    evolved into something much more involved.
+                </p>
+
+
+                <div class="feature-box">
+
+                    <strong>PROJECT HISTORY</strong>
+
+                    <ul>
+                        <li>First HTML-based application</li>
+                        <li>Prototype of the F.A.H.A.D concept</li>
+                        <li>Symbol and character mapping ideology</li>
+                        <li>
+                            Early terminology that later carried into
+                            F.A.H.A.D
+                        </li>
+                        <li>
+                            Archived as an important development milestone
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <a
+                    class="download-btn"
+                    href="https://drive.google.com/file/d/1uctcQRJiAx2Pd2lgv8LCPHlUiJNhbk0d/view?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VISIT PHALQONOS
+                </a>
+
+            </article>
+
+
+            <!-- =========================
+                 PROJECT 06 — PHALQONOS ORIGIN
+            ========================= -->
+
+            <article class="project-card full-width">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <span class="project-status archive">
+                            ORIGIN · NOVEMBER 2023
+                        </span>
+
+                        <h3>PhalqonOS "Origin"</h3>
+
+                        <span class="project-date">
+                            11.11.2023
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    <strong>PhalqonOS: Semantic Block Encoding System</strong>
+                </p>
+
+
+                <p>
+                    PhalqonOS is a lightweight, terminal-based operating
+                    environment built entirely in Bash, designed around
+                    a custom Semantic Block (SB) cipher. It features a
+                    live cryptographic menu that instantly translates
+                    standard text into a unique symbolic code and decodes
+                    it back into readable English using automated
+                    associative arrays.
+                </p>
+
+
+                <p>
+                    Beyond its technical framework, PhalqonOS is a
+                    foundational milestone project. Originally developed
+                    in November 2023 completely from scratch within an
+                    Android Termux environment, it represents a
+                    self-taught developer's very first foray into
+                    programming and technology.
+                </p>
+
+
+                <p>
+                    Born out of pure curiosity, this project served as
+                    the experimental sandbox for learning scripting,
+                    system architecture, and computational logic.
+                </p>
+
+
+                <p>
+                    As a symbolic philosophy for control and meaning,
+                    PhalqonOS was the vital stepping stone that bridged
+                    the gap between zero technical experience and
+                    advanced software design, directly paving the way
+                    for the creation of complex future architectures
+                    like F.A.H.A.D and Project !Froyo¡.
+                </p>
+
+
+                <div class="feature-box">
+
+                    <strong>PROJECT HIGHLIGHTS</strong>
+
+                    <ul>
+
+                        <li>
+                            <strong>Live SB Encoding &amp; Decoding:</strong>
+                            Features a two-way translation engine utilizing
+                            automated Bash associative arrays to process
+                            custom ciphers.
+                        </li>
+
+                        <li>
+                            <strong>Universal Deployment:</strong>
+                            Designed with a purely script-based architecture,
+                            allowing it to run across Linux, macOS, Windows
+                            through WSL or Git Bash, and mobile terminal
+                            environments.
+                        </li>
+
+                        <li>
+                            <strong>Historical Origin Point:</strong>
+                            The genesis project that catalyzed the transition
+                            from having no technical experience into
+                            developing larger digital software projects
+                            and architectures.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- HOW TO USE -->
+
+                <div class="feature-box">
+
+                    <strong>HOW TO USE PHALQONOS</strong>
+
+                    <p>
+                        PhalqonOS is a terminal-based Semantic Block
+                        Encoding OS developed by Fahad Al-Belal.
+                        Because it runs from a Bash script, it can be
+                        used on systems that provide a compatible
+                        terminal environment.
+                    </p>
+
+                </div>
+
+
+                <details class="install-section">
+
+                    <summary>
+                        01 · LINUX &amp; macOS — NATIVE TERMINAL
+                    </summary>
+
+                    <div class="install-content">
+
+                        <p>
+                            Both Linux and macOS provide terminal
+                            environments that can run Bash-based scripts.
+                        </p>
+
+
+                        <h4>Step 1</h4>
+
+                        <p>
+                            Open your Terminal.
+                        </p>
+
+
+                        <h4>Step 2</h4>
+
+                        <p>
+                            Create a dedicated directory and open a
+                            new file:
+                        </p>
+
+                        <pre><code>mkdir -p $HOME/phalqonos &amp;&amp; cd $HOME/phalqonos &amp;&amp; nano phalqon.sh</code></pre>
+
+
+                        <h4>Step 3</h4>
+
+                        <p>
+                            Paste the full PhalqonOS Bash script into
+                            the editor.
+                        </p>
+
+
+                        <h4>Step 4</h4>
+
+                        <p>
+                            Save and exit the editor.
+                            In Nano, press <strong>CTRL + O</strong>,
+                            hit Enter, then <strong>CTRL + X</strong>.
+                        </p>
+
+
+                        <h4>Step 5</h4>
+
+                        <p>
+                            Make the script executable and create a
+                            shortcut alias:
+                        </p>
+
+                        <pre><code>chmod +x phalqon.sh
+echo "alias phalqon='$HOME/phalqonos/phalqon.sh'" &gt;&gt; ~/.bashrc
+source ~/.bashrc</code></pre>
+
+
+                        <p>
+                            <strong>macOS note:</strong>
+                            You may need to add the alias to
+                            <code>~/.zshrc</code> instead of
+                            <code>~/.bashrc</code>, then run
+                            <code>source ~/.zshrc</code>.
+                        </p>
+
+
+                        <h4>Step 6</h4>
+
+                        <p>
+                            Launch PhalqonOS:
+                        </p>
+
+                        <pre><code>phalqon</code></pre>
+
+                    </div>
+
+                </details>
+
+
+                <details class="install-section">
+
+                    <summary>
+                        02 · WINDOWS — GIT BASH / WSL
+                    </summary>
+
+                    <div class="install-content">
+
+                        <p>
+                            Windows can run PhalqonOS through a
+                            Bash-compatible environment.
+                        </p>
+
+
+                        <h4>Option A — Git Bash</h4>
+
+                        <p>
+                            Install Git for Windows, open Git Bash,
+                            then follow the same terminal commands
+                            listed in the Linux/macOS section above.
+                        </p>
+
+
+                        <h4>Option B — Windows Subsystem for Linux</h4>
+
+                        <p>
+                            Open PowerShell as Administrator and install
+                            WSL:
+                        </p>
+
+                        <pre><code>wsl --install</code></pre>
+
+
+                        <p>
+                            Restart the computer, open the installed
+                            Linux distribution, and follow the
+                            Linux/macOS installation steps.
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+                <details class="install-section">
+
+                    <summary>
+                        03 · ANDROID — TERMUX
+                    </summary>
+
+                    <div class="install-content">
+
+                        <p>
+                            PhalqonOS was originally created in an
+                            Android Termux environment, making mobile
+                            terminal environments part of its original
+                            history.
+                        </p>
+
+
+                        <h4>Step 1</h4>
+
+                        <p>
+                            Install Termux from a supported distribution
+                            such as F-Droid or the Termux project
+                            repository.
+                        </p>
+
+
+                        <h4>Step 2</h4>
+
+                        <p>
+                            Open Termux and update its packages:
+                        </p>
+
+                        <pre><code>pkg update &amp;&amp; pkg upgrade</code></pre>
+
+
+                        <h4>Step 3</h4>
+
+                        <p>
+                            Install the required text editor:
+                        </p>
+
+                        <pre><code>pkg install nano</code></pre>
+
+
+                        <h4>Step 4</h4>
+
+                        <p>
+                            Create the project directory and script:
+                        </p>
+
+                        <pre><code>mkdir -p $HOME/phalqonos &amp;&amp; cd $HOME/phalqonos &amp;&amp; nano phalqon.sh</code></pre>
+
+
+                        <h4>Step 5</h4>
+
+                        <p>
+                            Paste the PhalqonOS script into Termux,
+                            save it with Nano, and exit the editor.
+                        </p>
+
+
+                        <h4>Step 6</h4>
+
+                        <p>
+                            Make the script executable and run it:
+                        </p>
+
+                        <pre><code>chmod +x phalqon.sh
+./phalqon.sh</code></pre>
+
+                    </div>
+
+                </details>
+
+
+                <details class="install-section">
+
+                    <summary>
+                        04 · USING PHALQONOS
+                    </summary>
+
+                    <div class="install-content">
+
+                        <p>
+                            Once launched, PhalqonOS presents its boot
+                            screen and four-option menu:
+                        </p>
+
+                        <ol>
+
+                            <li>
+                                <strong>Encode Sentence</strong> —
+                                Type standard English text to convert
+                                it into Semantic Block (SB) code.
+                            </li>
+
+                            <li>
+                                <strong>Decode SB Code</strong> —
+                                Paste space-separated SB code to
+                                translate it back into English.
+                            </li>
+
+                            <li>
+                                <strong>About</strong> —
+                                View the system philosophy and
+                                developer credits.
+                            </li>
+
+                            <li>
+                                <strong>Log-out</strong> —
+                                Exit the OS environment.
+                            </li>
+
+                        </ol>
+
+                    </div>
+
+                </details>
+
+
+                <a
+                    class="download-btn"
+                    href="https://drive.google.com/file/d/1GHk1PGt8OiU-d73nQPVVQdH-nq4P6-N8/view?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    DOWNLOAD MAIN PROGRAM
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOCIAL
+========================= -->
+
+<section id="social">
+
+    <div class="container">
+
+        <h2 class="section-title">SOCIAL</h2>
+
 
         <div class="social-grid">
 
@@ -522,47 +1933,91 @@
                 class="social-link"
                 href="https://instagram.com/fahad.way"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
             >
-                Instagram · @fahad.way
+                INSTAGRAM
             </a>
+
 
             <a
                 class="social-link"
                 href="https://facebook.com/way.fahad"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
             >
-                Facebook · way.fahad
+                FACEBOOK
             </a>
+
 
             <a
                 class="social-link"
                 href="https://youtube.com/@f7h7dofcl"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
             >
-                YouTube · @f7h7dofcl
+                YOUTUBE
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+</main>
 
 
-    <!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
-    <footer>
+<footer>
+
+    <div class="container footer-inner">
 
         <div>
-            © 2026 <strong>Fahad Al-Belal</strong>
+
+            <div class="footer-title">
+                !Froyo¡ — Fahad Al-Belal
+            </div>
+
+            <div class="footer-text">
+                Personal project archive · Software · Emulation ·
+                Networking
+            </div>
+
         </div>
 
-        <div>
-            fahadnway.qd.je
+
+        <div class="footer-text">
+
+            <strong>PROJECT ARCHIVE</strong>
+
+            <br><br>
+
+            Software experiments, prototypes, rewrites,
+            development milestones, and archived releases.
+
         </div>
 
-    </footer>
+    </div>
+
+
+    <div class="container">
+
+        <div class="footer-legal">
+
+            21.12.2008 is used as a personal version identifier/signature
+            based on the creator's birthdate. It does not by itself
+            establish legal ownership. But the user has legal ownership
+            papers and all legitimate grounds to claim these properties
+            as his own.
+
+        </div>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
