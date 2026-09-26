@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Fahad Al-Belal — developer, creator and creator of !Froyo!">
+
+    <title>Fahad Al-Belal | Developer</title>
+
+    <style>
+        :root {
+            --green: #8FFE09;
+            --black: #080808;
+            --dark: #111111;
+            --gray: #a0a0a0;
+            --border: #292929;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(8, 8, 8, 0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 85vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 80px 7%;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(143, 254, 9, 0.12),
+                    transparent 35%
+                ),
+                var(--black);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            background: var(--green);
+            color: #000000;
+
+            border-radius: 6px;
+
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 9vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 28px;
+        }
+
+        h1 span {
+            color: var(--green);
+        }
+
+        .hero-text {
+            max-width: 650px;
+
+            color: var(--gray);
+            font-size: 19px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+
+            margin-top: 35px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 20px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-weight: 700;
+            font-size: 14px;
+
+            transition: 0.2s ease;
+        }
+
+        .button.primary {
+            background: var(--green);
+            color: #000000;
+            border-color: var(--green);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ABOUT */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .about {
+            background: #0d0d0d;
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .section-label {
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            color: var(--gray);
+            font-size: 17px;
+            max-width: 650px;
+        }
+
+        .about-box {
+            background: var(--green);
+            color: #000000;
+
+            border-radius: 16px;
+
+            padding: 40px;
+        }
+
+        .about-box strong {
+            display: block;
+
+            font-size: 42px;
+            line-height: 1;
+
+            margin-bottom: 10px;
+        }
+
+        .about-box p {
+            font-weight: 700;
+        }
+
+        /* FROYO */
+
+        .froyo {
+            background: var(--black);
+        }
+
+        .froyo-card {
+            max-width: 850px;
+
+            padding: 40px;
+
+            background: var(--dark);
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .froyo-card h2 {
+            margin-bottom: 8px;
+        }
+
+        .froyo-year {
+            color: var(--green);
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 20px;
+        }
+
+        .froyo-card p {
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+        /* SOCIAL */
+
+        .socials {
+            background: var(--green);
+            color: #000000;
+        }
+
+        .socials .section-label {
+            color: #000000;
+        }
+
+        .social-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .social-link {
+            padding: 14px 18px;
+
+            border: 2px solid #000000;
+            border-radius: 8px;
+
+            color: #000000;
+            text-decoration: none;
+
+            font-weight: 800;
+
+            transition: 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: #000000;
+            color: var(--green);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            background: #050505;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: var(--green);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 16px 5%;
+            }
+
+            nav div:last-child {
+                display: none;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 70px 5%;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-text {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .froyo-card {
+                padding: 28px;
+            }
+
+            footer {
+                padding: 30px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            FAHAD NWAY
+        </div>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#froyo">!Froyo!</a>
+            <a href="#socials">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Developer · Creator
+            </div>
+
+            <h1>
+                Building<br>
+                <span>my own way.</span>
+            </h1>
+
+            <p class="hero-text">
+                I'm Fahad Al-Belal, a developer creating apps,
+                experimenting with technology and turning ideas
+                into working software.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a class="button primary" href="#froyo">
+                    !Froyo!
+                </a>
+
+                <a class="button" href="#socials">
+                    Find Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="section-label">
+                    About
+                </div>
+
+                <h2>
+                    Independent by design.
+                </h2>
+
+                <p class="about-text">
+                    I'm Fahad Al-Belal. I build software,
+                    experiment with technology and develop
+                    independent projects.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <strong>2024+</strong>
+
+                <p>
+                    Building, experimenting and learning
+                    through independent software projects.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FROYO -->
+
+    <section id="froyo" class="froyo">
+
+        <div class="section-label">
+            Featured Project
+        </div>
+
+        <div class="froyo-card">
+
+            <div class="froyo-year">
+                PROJECT !FROYO! · SINCE 2024
+            </div>
+
+            <h2>
+                !Froyo!
+            </h2>
+
+            <p>
+                A mobile networking and connectivity project
+                focused on flexible tethering and
+                device-to-device communication.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOCIALS -->
+
+    <section id="socials" class="socials">
+
+        <div class="section-label">
+            Social
+        </div>
+
+        <h2>
+            Find me online.
+        </h2>
+
+        <div class="social-grid">
+
+            <a
+                class="social-link"
+                href="https://instagram.com/fahad.way"
+                target="_blank"
+                rel="noopener"
+            >
+                Instagram · @fahad.way
+            </a>
+
+            <a
+                class="social-link"
+                href="https://facebook.com/way.fahad"
+                target="_blank"
+                rel="noopener"
+            >
+                Facebook · way.fahad
+            </a>
+
+            <a
+                class="social-link"
+                href="https://youtube.com/@f7h7dofcl"
+                target="_blank"
+                rel="noopener"
+            >
+                YouTube · @f7h7dofcl
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026 <strong>Fahad Al-Belal</strong>
+        </div>
+
+        <div>
+            fahadnway.qd.je
+        </div>
+
+    </footer>
+
+</body>
+</html>
