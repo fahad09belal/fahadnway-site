@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About — !Froyo¡ | Mohammad Fahad Al-Belal</title>
+
+<meta name="description" content="About Mohammad Fahad Al-Belal, citizen of Bangladesh and creator of !Froyo¡, F.A.H.A.D and PhalqonOS. Explore his software development journey and experimental projects.">
+<meta name="author" content="Mohammad Fahad Al-Belal">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://fahadnway.qd.je/about.html">
+
+<link rel="icon" type="image/png" href="/froyo.png">
+<link rel="shortcut icon" type="image/png" href="/froyo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #8FFE09;
+    color: #050505;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.shape {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.shape.one {
+    width: 180px;
+    height: 180px;
+    background: #050505;
+    top: -50px;
+    right: -40px;
+    transform: rotate(18deg);
+}
+
+.shape.two {
+    width: 120px;
+    height: 300px;
+    background: #ff1744;
+    bottom: -100px;
+    left: -40px;
+    transform: rotate(25deg);
+}
+
+.shape.three {
+    width: 90px;
+    height: 90px;
+    background: #175cff;
+    top: 45%;
+    right: 5%;
+    transform: rotate(45deg);
+}
+
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #050505;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    font-family: "Permanent Marker", cursive;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    color: #ffe600;
+    -webkit-text-stroke: 3px #050505;
+    text-shadow: 6px 6px 0 #e60012;
+    transform: rotate(-3deg);
+}
+
+.since {
+    margin-top: 10px;
+    margin-left: 8px;
+    font-family: "Permanent Marker", cursive;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: #ffe600;
+    -webkit-text-stroke: 1.5px #050505;
+    text-shadow: 3px 3px 0 #e60012;
+    transform: rotate(-2deg);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav a {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #050505;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border: 3px solid #050505;
+    box-shadow: 5px 5px 0 #050505;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+nav a:nth-child(1) {
+    transform: rotate(-2deg);
+}
+
+nav a:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+nav a:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+nav a:nth-child(4) {
+    transform: rotate(2deg);
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px) rotate(0deg);
+    box-shadow: 7px 7px 0 #e60012;
+}
+
+nav a:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #050505;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 7%;
+}
+
+.label {
+    display: inline-block;
+    background: #050505;
+    color: #8FFE09;
+    padding: 8px 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(70px, 13vw, 150px);
+    line-height: 0.8;
+    letter-spacing: -5px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.intro {
+    font-size: 25px;
+    line-height: 1.5;
+    font-weight: 700;
+    max-width: 850px;
+    margin-bottom: 55px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #f5f5f5;
+    border: 5px solid #050505;
+    padding: 30px;
+    box-shadow: 10px 10px 0 #050505;
+}
+
+.card:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.card:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.card h2 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.card p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 3px solid #050505;
+}
+
+.contact-info p {
+    margin-bottom: 18px;
+}
+
+.contact-info strong {
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Dedication */
+
+.dedication {
+    margin-top: 75px;
+    background: #f5f5f5;
+    border: 5px solid #050505;
+    padding: 40px;
+    box-shadow: 12px 12px 0 #050505;
+    transform: rotate(-0.7deg);
+    text-align: center;
+}
+
+.dedication-label {
+    display: inline-block;
+    background: #050505;
+    color: #f5f5f5;
+    padding: 8px 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    transform: rotate(-2deg);
+}
+
+.dedication h2 {
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1;
+    margin-bottom: 28px;
+    color: #050505;
+}
+
+.dedication-photo {
+    margin: 0 auto 28px;
+    max-width: 420px;
+    background: #050505;
+    border: 5px solid #050505;
+    padding: 8px;
+    box-shadow: 8px 8px 0 #777;
+}
+
+.dedication-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+}
+
+.dedication-photo figcaption {
+    background: #050505;
+    color: #f5f5f5;
+    padding: 9px;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dedication-text {
+    max-width: 650px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.dedication-name {
+    font-weight: 900;
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+.rest-in-peace {
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(25px, 4vw, 38px);
+    margin-top: 20px;
+    margin-bottom: 12px !important;
+    transform: rotate(-1deg);
+}
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .logo-area {
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 42px;
+        -webkit-text-stroke: 2.5px #050505;
+        text-shadow: 5px 5px 0 #e60012;
+    }
+
+    .since {
+        margin-left: 0;
+        font-size: 16px;
+        -webkit-text-stroke: 1.3px #050505;
+        text-shadow: 3px 3px 0 #e60012;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 10px 13px;
+        font-size: 12px;
+        border-width: 3px;
+        box-shadow: 4px 4px 0 #050505;
+        margin: 0;
+    }
+
+    main {
+        padding-top: 60px;
+    }
+
+    h1 {
+        font-size: 75px;
+    }
+
+    .intro {
+        font-size: 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        box-shadow: 6px 6px 0 #050505;
+    }
+
+    .dedication {
+        padding: 25px 18px;
+        box-shadow: 7px 7px 0 #050505;
+    }
+
+    .dedication-photo {
+        box-shadow: 5px 5px 0 #777;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+<div class="shape three"></div>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">
+            !Froyo¡
+        </div>
+
+        <div class="since">
+            Since 2023
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/social.html">Social</a>
+
+    </nav>
+
+</header>
+
+<main>
+
+    <span class="label">
+        About the Creator
+    </span>
+
+    <h1>
+        Fahad<br>
+        Al-Belal
+    </h1>
+
+    <p class="intro">
+        I'm a software developer and independent creator interested in
+        programming, experimental software, emulation, networking and
+        building things from the ground up.
+    </p>
+
+    <section class="about-grid">
+
+        <article class="card">
+
+            <h2>
+                Who I Am
+            </h2>
+
+            <p>
+                My name is Mohammad Fahad Al-Belal. A citizen of Bangladesh.
+                I am the creator behind !Froyo¡ and several experimental
+                software projects. This website serves as my personal
+                project archive and documents the things I've built,
+                experimented with and learned throughout my programming
+                journey.
+            </p>
+
+            <div class="contact-info">
+
+                <p>
+                    <strong>Email</strong><br>
+                    hd874u@gmail.com
+                </p>
+
+                <p>
+                    <strong>Address</strong><br>
+                    Tongi Bazar, Tatul-Tola Road<br>
+                    Tongi Bazar<br>
+                    Tongi-Gazipur<br>
+                    Gazipur, 1230<br>
+                    Bangladesh
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="card">
+
+            <h2>
+                My Journey
+            </h2>
+
+            <p>
+                Before November 2023, I was entirely outside the world of
+                technology. I didn't have a background in coding or computer
+                science, but I had an intense, growing curiosity about how
+                things worked under the hood. That curiosity pushed me to
+                download Termux on an Android device. Instead of relying on
+                heavy desktop IDEs or guided tutorials, I started from absolute
+                scratch in a raw, terminal-based environment. It was a
+                baptism by fire into the command line, and building small,
+                experimental programs quickly turned from a passing interest
+                into an obsession.
+            </p>
+
+            <p>
+                That experimentation culminated in my first true milestone:
+                PhalqonOS. I designed a live Semantic Block Encoding System
+                operating entirely through a Bash script. Building a custom
+                cipher and an automated decoding engine in a mobile terminal
+                was my proving ground. It was the exact moment I transitioned
+                from being a consumer of technology to a creator. PhalqonOS
+                taught me system architecture, computational logic, and the
+                symbolic philosophy of control—proving that you don't need
+                a high-end setup to build complex, functional software.
+            </p>
+
+            <p>
+                The mechanics I learned building PhalqonOS didn't just sit
+                in a vacuum; they became the architectural foundation for
+                everything that followed. The problem-solving skills developed
+                in that first Bash script scaled up, directly paving the way
+                for larger, overarching digital ecosystems like F.A.H.A.D and
+                the aggressively styled Project !Froyo¡. I learned how to
+                connect disparate systems, manage logic flow, and build
+                environments that carry a distinct, street-level identity.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h2>
+                What I Build
+            </h2>
+
+            <p>
+                My projects range from experimental software and custom
+                encoding systems to emulators, networking tools and
+                operating-system-inspired environments.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h2>
+                Philosophy
+            </h2>
+
+            <p>
+                I like learning by building. Every project is an opportunity
+                to experiment with an idea, understand how something works,
+                and turn that idea into something usable.
+            </p>
+
+        </article>
+
+    </section>
+
+    <!-- Dedication -->
+
+    <section class="dedication">
+
+        <div class="dedication-label">
+            Dedication
+        </div>
+
+        <h2>
+            In Loving Memory of Shonai
+        </h2>
+
+        <figure class="dedication-photo">
+
+            <img
+                src="/shonai.jpg"
+                alt="Shonai"
+            >
+
+            <figcaption>
+                Shonai
+            </figcaption>
+
+        </figure>
+
+        <div class="dedication-text">
+
+            <p class="rest-in-peace">
+                Rest in peace, Princess...
+            </p>
+
+            <p>
+                You will always be remembered and forever remain
+                a part of my story.
+            </p>
+
+            <p class="dedication-name">
+                Shonai
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
